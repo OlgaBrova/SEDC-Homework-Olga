@@ -7,16 +7,36 @@
 // Bonus: enter the values from prompt or from HTML inputs
 
 
+// Prvo reshenie:
+
+// let inputName = prompt("What is your pet's name?");
+// let inputKind = prompt("What kind of pet is it?");
+
+// function CreateAnimal(inputName, inputKind){
+//     this.name = inputName;
+//     this.kind = inputKind;
+//     this.speak = function (){
+//         console.log(`Your ${this.kind} says: 'Hey beautifull!'`);
+//     }
+// } 
+
+// let animal = new CreateAnimal(inputName, inputKind);
+// animal.speak();
+
+
+
+//Korekcija :
+
 let inputName = prompt("What is your pet's name?");
 let inputKind = prompt("What kind of pet is it?");
 
 function CreateAnimal(inputName, inputKind){
     this.name = inputName;
     this.kind = inputKind;
-    this.speak = function (){
-        console.log(`Your ${this.kind} says: 'Hey beautifull!'`);
+    this.speak = function (greet){
+        console.log(`Your ${inputKind} says: '${greet}'`);
     }
 } 
 
 let animal = new CreateAnimal(inputName, inputKind);
-animal.speak();
+animal.speak("Hey beautiful!");
