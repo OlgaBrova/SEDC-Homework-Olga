@@ -11,7 +11,7 @@ document.getElementById("buttonUsers").addEventListener("click", function(){
                         <h3>All the albums that have 'omnis' in their title:</h3>
                         <ul>
                             ${json.map((user, index) => {
-                                if (user.title.indexOf("omnis") > -1){
+                                if (user.title.includes("omnis")){
                                 return (
                                     `
                                         <li key=${index}>
