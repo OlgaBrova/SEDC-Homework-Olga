@@ -12,7 +12,7 @@
 // **NOTE:** JQuery will autmatically parse this call (js will not).
 
 
-
+$(document).ready(function(){
 
    
     $("button").click(function() {
@@ -44,10 +44,10 @@
                 </tr>
                 </table>`);
 
-
             }).catch(function (error) {
                 alert("ERROR");
             });
             
     })
  
+});
