@@ -57,14 +57,6 @@ let navigationService = {
                 starWarsService.getShips(navigationService.currentPage);
             }
 
-
-            // vaka probuvam da se vratam nazad so previous btn koga sum na poslednata strana, no ne e tocno pak:
-
-            // if (navigationService.currentPage === navigationService.lastPage && navigationService.pageType === "people") {
-
-            //     starWarsService.getPeople(navigationService.lastPage -= 1);
-            // }
-
         });
 
 
@@ -87,8 +79,8 @@ let navigationService = {
            
             uiService.toggleLoader(true);
             navigationService.lastPage;
+            navigationService.currentPage = navigationService.lastPage;
           
-
             if (navigationService.pageType === "people") {
                 starWarsService.getPeople(navigationService.lastPage);
             }
