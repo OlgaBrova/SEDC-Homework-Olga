@@ -101,29 +101,42 @@ function Student(fName, lName, age) {
 
     this.startSubject = function(subjectObj) {               
         
-        if (this.academy !== null && this.academy.subjects.filter(subject => subject.title === subjectObj.title) !== []) {
-            this.currentSubject = subjectObj;
-            subjectObj.students.push(`${this.firstName} ${this.lastName}`);
-        
-        } else {
-            console.log("ERROR! There is no Academy object in academy property!");
-        }
+        if (this.academy) {
+            
+            let hasSubject = this.academy.subjects.filter(sub => sub === subjectObj.title).length > 0;
+            if (hasSubject) {
+                subjectObj.students.push(this.firstName);
+                if (!this.currentSubject) {
+                    this.currentSubject = subjectObj;
+                    return;
+                }
 
-        if (this.currentSubject !== null) {
-            //this.currentSubject = subjectObj;
-            this.completedSubjects.push(this.currentSubject);
-        }   
+                this.completedSubjects.push(this.currentSubject);
+                this.currentSubject = subjectObj;
+            }
+        } else {
+            throw new Error("That subject does not exists in the current accademy!");
+        }
+  
     }
 
 }
+
 
 let student1 = new Student("Aleksandar", "Shapka", 33);
 student1.startAcademy(academy1);
 //console.log(academy1.students);
 
-//student1.startSubject(subject1);
-//console.log(student1);                // Adds Math to currentSubject, since it exists in academy1 (academy object)
+student1.startSubject(subject1);
+               // Adds Math to currentSubject, since it exists in academy1 (academy object) and to completes subj
 
 let subject2 = new Subject("Geometry", true, academy1, []);
-student1.startSubject(subject2);        // Adds Geometry to currentSubject, but it shouldn't because the subject does not exist in Academy object
-console.log(student1);          
+student1.startSubject(subject2);        // Doesn't add Geometry to currentSubject, because it does not exist in Academy object
+      
+
+let subject3 = new Subject("Html&CSS", true, academy1, []);
+student1.startSubject(subject3);        //  Adds Html&CSS to currentSubject, since it exists in academy1 (academy object) and to completes subj
+
+let subject4 = new Subject("JavaScript", true, academy1, []);
+student1.startSubject(subject4);        // Adds JavaScript to currentSubject since it exists in academy1 (academy object)
+console.log(student1);

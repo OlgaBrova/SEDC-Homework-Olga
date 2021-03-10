@@ -73,9 +73,9 @@ let student2 = new Student("Elena", "Mihajlova", 25, "SEDC Academy", 52);
 
 
 // Method on the Student prototype:
-Student.prototype.showAcademy = function() {
+Person.prototype.showAcademy = function() {
     console.log(`${this.academyName}`);
-}                                                        // Ovde mi ja dava greshkata, deka showAcademy ne e funkcija
+}                                                    
 
 
 function DesignStudent(firstName, lastName, age, academyName, studentId, isStudentOfTheMonth) {
@@ -91,7 +91,7 @@ function DesignStudent(firstName, lastName, age, academyName, studentId, isStude
 let studentDesign1 = new DesignStudent("Ivan", "Shterjov", 25, "SEDC - Academy for Design", 133, false);
 studentDesign1.attendAdobeExam();
 console.log(studentDesign1);
-studentDesign1.showAcademy();                      ///Ovde ja povikuvam funkcijata za ovoj objekt
+studentDesign1.showAcademy();                
 
 
 
@@ -118,6 +118,7 @@ function CodeStudent(firstName, lastName, age, academyName, studentId, hasIndivi
 let studentCode1 = new CodeStudent("Marija", "Penovska", 22, "SEDC - Academy for Coding", 98);
 studentCode1.doProject("individual");
 console.log(studentCode1);
+studentCode1.showAcademy(); 
 
 
 
@@ -134,3 +135,4 @@ function NetworkStudent(firstName, lastName, age, academyName, studentId, academ
 let studentNetwork1 = new NetworkStudent("Nevena", "Jovanova", 21, "SEDC - Network Academy", 56, 2);
 studentNetwork1.attendCiscoExam();
 console.log(studentNetwork1);
+studentNetwork1.showAcademy();
